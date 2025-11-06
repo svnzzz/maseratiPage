@@ -8,7 +8,6 @@ import (
 )
 
 //GET /vehicles
-//GET vechicles/:id/optionals
 
 func GetVehicles(c *gin.Context) {
 	rows, err := initializers.DB.Query("SELECT * FROM TModelli")
