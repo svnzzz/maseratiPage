@@ -14,8 +14,9 @@ func GetVehicleWithOptionals(c *gin.Context) {
 	intId, err := strconv.ParseInt(id, 10, 64)
 	if err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"Error": err.Error()})
+		return
 	}
-	rows, err := initializers.DB.Query("SELECT * FROM TOptionals WHERE ModelloID = @p1", intId)
+	rows, err := initializers.DB.Query("SELECT ModelloID, Nome, Prezzo, Modello, FileImmagine FROM viewModelliOptional WHERE ModelloID = @p1", intId)
 
 	if err != nil {
 		return
@@ -26,7 +27,7 @@ func GetVehicleWithOptionals(c *gin.Context) {
 
 	for rows.Next() {
 		var opt Optional
-		if err := rows.Scan(&opt.Name, &opt.Price, &opt.Model, &opt.FileImage); err != nil {
+		if err := rows.Scan(&opt.ModelID, &opt.Name, &opt.Price, &opt.Model, &opt.FileImage); err != nil {
 			c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
 			return
 		}
