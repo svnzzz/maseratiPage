@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"maserati/luongo/vehicle"
+	"maserati/luongo/entities/vehicle"
 
 	"github.com/gin-gonic/gin"
 )
