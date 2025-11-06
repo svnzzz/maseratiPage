@@ -3,6 +3,8 @@ package initializers
 import (
 	"database/sql"
 	"fmt"
+
+	_ "github.com/microsoft/go-mssqldb"
 )
 
 var DB *sql.DB
@@ -10,7 +12,8 @@ var DB *sql.DB
 func CreateConnection() error {
 	connectionString := LoadEnvVariables()
 
-	DB, err := sql.Open("sqlserver", connectionString)
+	var err error
+	DB, err = sql.Open("sqlserver", connectionString)
 	if err != nil {
 		return fmt.Errorf("error while opening the connection: %v", err)
 	}
