@@ -48,3 +48,7 @@ func GetVehicles(c *gin.Context) {
 	}
 	c.JSON(http.StatusOK, vehicle)
 }
+
+func GetVehiclesOptionals(c *gin.Context) {
+
+}
