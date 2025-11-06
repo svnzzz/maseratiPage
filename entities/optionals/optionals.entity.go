@@ -1,10 +1,4 @@
-package vehicle
-
-type Vehicle struct {
-	Model           string  `json:"Modello"`
-	BasePrice       float32 `json:"PrezzoBase"`
-	BackgroundImage string  `json:"FileImageSfondo"`
-}
+package optionals
 
 type Optional struct {
 	ModelID   int     `json:"ModelloID"`
